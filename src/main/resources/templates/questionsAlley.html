@@ -1,0 +1,162 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="/css/questionStyles.css">
+    <link rel="stylesheet" href="/css/mobile.css">
+    <link rel="stylesheet" href="/css/questionForm.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--za footer-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <!--za footer-->
+</head>
+
+<!-- Navigation -->
+<header th:replace="~{fragments/commons::navigation}"></header>
+
+<body>
+<div>
+    <div class="inner" th:object="${id}">
+        <div class="image-holder">
+            <h1 data-th-text="#{label.alley.head}">Въпросник за алея</h1>
+            <img src="/images/alley.jpg" alt="image">
+            <img src="/images/alley1.jpg" alt="image">
+        </div>
+
+        <form
+                th:action="@{/questions/alley/{pathId}(pathId=${id})}"
+                th:method="post"
+                modelAttribute="questionAlleyRequest">
+
+            <label data-th-text="#{label.alley.one}"> 1. Какъв тип е настилката? </label>
+            <div>
+                <input type="radio" name="questionOne" value="A1" id="A1" onclick="Visit()">
+                <label data-th-text="#{label.alley.one.one}" for="A1">Плочки</label>
+            </div>
+            <div>
+                <input type="radio" name="questionOne" value="A2" id="A2" onclick="Visit()">
+                <label data-th-text="#{label.alley.one.two}" for="A2">Павета</label>
+            </div>
+            <div>
+                <input type="radio" name="questionOne" value="A3" id="A3" onclick="Visit()">
+                <label data-th-text="#{label.alley.one.three}" for="A3">Асфалт</label>
+            </div>
+            <div>
+                <input type="radio" name="questionOne" value="A4" id="A4" onclick="Visit()">
+                <label data-th-text="#{label.alley.one.four}" for="A4">Чакъл и подобни насипни материали</label>
+            </div>
+            <div>
+                <input type="radio" name="questionOne" value="A5" id="A5" onclick="notVisit()">
+                <label data-th-text="#{label.alley.one.five}" for="A5">Липсва настилка</label>
+            </div>
+
+            <br>
+            <div class="questionTwoClass">
+                <label data-th-text="#{label.alley.two}">2. Има ли проблеми с настилката в момента?</label>
+                <div>
+                    <input type="radio" name="questionTwo" value="B1-2" id="B1" onclick="isCheckedTwo()">
+                    <label data-th-text="#{label.alley.two.one}" for="B1">Не, никакви</label>
+                </div>
+
+                <div>
+                    <input type="radio" name="questionTwo" value="B2-0" id="B2">
+                    <label for="B2" data-th-text="#{label.alley.two.two}"> Да</label>
+                    <div class="sub2">
+                        <div>
+                            <input type="checkbox" name="questionSubTwo" value="B21" id="B21">
+                            <label for="B21" data-th-text="#{label.alley.two.two.one}">Има много неравности</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="questionSubTwo" value="B22" id="B22">
+                            <label data-th-text="#{label.alley.two.two.two}" for="B22">Хлъзгаво е</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="questionSubTwo" value="B23" id="B23">
+                            <label data-th-text="#{label.alley.two.two.three}" for="B23">Има наводнени участъци</label>
+                        </div>
+                        <div>
+                            <label data-th-text="#{label.alley.two.two.four}" for="B24">Друго</label>
+                            <input type="text" name="questionSubTwo" field="questionSubTwo" id="B24">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.alley.three}">3. Осветено ли е? </label>
+            <div>
+                <input type="radio" name="questionThree" value="C1-2" id="C1">
+                <label for="C1" data-th-text="#{label.alley.three.one}">Да, достатъчно осветено в цялата отсечка</label>
+            </div>
+            <div>
+                <input type="radio" name="questionThree" value="C2-1" id="C2">
+                <label for="C2" data-th-text="#{label.alley.three.two}">Да, достатъчно осветено само в някои части на отсечката</label>
+            </div>
+            <div>
+                <input type="radio" name="questionThree" value="C3-0" id="C3">
+                <label for="C3" data-th-text="#{label.alley.three.three}">Не е осветено в цялата отсечка</label>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.alley.four}">4. Има ли хора в тази зона? </label>
+            <div>
+                <input type="radio" name="questionFour" value="D1-1" id="D1">
+                <label for="D1" data-th-text="#{label.alley.four.one}">Да, има седящи/стоящи</label>
+            </div>
+            <div>
+                <input type="radio" name="questionFour" value="D2-0.5" id="D2">
+                <label for="D2" data-th-text="#{label.alley.four.two}">Да, има преминаващи</label>
+            </div>
+            <div>
+                <input type="radio" name="questionFour" value="D3-1.5" id="D3">
+                <label for="D3" data-th-text="#{label.alley.four.three}">Да, има седящи/стоящи и преминаващи</label>
+            </div>
+            <div>
+                <input type="radio" name="questionFour" value="D4-0" id="D4">
+                <label for="D4" data-th-text="#{label.alley.four.four}">Няма</label>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.alley.five}">5. Има ли озеленяване? (дървета, храсти, тревни площи и др.)</label>
+            <div>
+                <input type="radio" name="questionFive" value="E1-1" id="E1">
+                <label for="E1" data-th-text="#{label.alley.five.one}">Да, в добро състояние</label>
+            </div>
+            <div>
+                <input type="radio" name="questionFive" value="E2-0.5" id="E2">
+                <label for="E2" data-th-text="#{label.alley.five.two}">Да, в лошо състояние</label>
+            </div>
+            <div>
+                <input type="radio" name="questionFive" value="E3-0" id="E3">
+                <label for="E3" data-th-text="#{label.alley.five.three}">Не, няма</label>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.alley.six}">6. Има ли градско обзавеждане? (пейки, кошчета и др.) </label>
+            <div>
+                <input type="radio" name="questionSix" value="F1-1" id="F1">
+                <label for="F1" data-th-text="#{label.alley.six.one}">Да, в добро състояние</label>
+            </div>
+            <div>
+                <input type="radio" name="questionSix" value="F2-0.5" id="F2">
+                <label for="F2" data-th-text="#{label.alley.six.two}">Да, в лошо състояние</label>
+            </div>
+            <div>
+                <input type="radio" name="questionSix" value="F3-0" id="F3">
+                <label for="F3" data-th-text="#{label.alley.six.three}">Не, няма</label>
+            </div>
+            <button type="submit" data-th-text="#{label.alley.but}">Submit</button>
+        </form>
+    </div>
+</div>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script><!--hfdshfl-->
+<script src="/js/questionAlley.js"></script>
+</body>

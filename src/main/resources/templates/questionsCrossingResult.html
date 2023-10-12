@@ -1,0 +1,180 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head >
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="/css/questionStylesResult.css">
+    <link rel="stylesheet" href="/css/questionResult.css">
+    <link rel="stylesheet" href="/css/mobile.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--za footer-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <!--za footer-->
+</head>
+<body>
+<!-- Navigation -->
+<header th:replace="fragments/commons::navigation"></header>
+
+<section>
+    <!--for demo wrap-->
+    <h1 data-th-text="#{label.table.head.cro}">Резултати от пресичане</h1>
+    <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+            <tr>
+                <th data-th-text="#{label.table.question}">Въпрос</th>
+                <th data-th-text="#{label.table.otg}">Отговор</th>
+                <th data-th-text="#{label.table.podot}">Подотговор</th>
+                <th data-th-text="#{label.table.result}">Резултат</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+            <tr>
+                <td data-th-text="#{label.crossing.one}">Какъв е автомобилният трафик на уличното платно в момента?</td>
+                <td data-th-text="#{label.crossing.one.one}">Интензивен</td>
+                <td></td>
+                <td th:text="${result.A1}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td data-th-text="#{label.crossing.one.two}">Умерен</td>
+                <td></td>
+                <td th:text="${result.A2}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td data-th-text="#{label.crossing.one.three}">Спокоен</td>
+                <td></td>
+                <td th:text="${result.A3}">0</td>
+            </tr>
+
+            <tr>
+                <td data-th-text="#{label.crossing.two}">Какъв вид е пресичането?</td>
+                <td data-th-text="#{label.crossing.two.one}">Светофар</td>
+                <td></td>
+                <td th:text="${result.B1}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td data-th-text="#{label.crossing.two.two}">Пешеходна пътека</td>
+                <td></td>
+                <td th:text="${result.B2}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td data-th-text="#{label.crossing.two.three}">Пешеходен подлез</td>
+                <td></td>
+                <td th:text="${result.B3}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td data-th-text="#{label.crossing.two.four}">Пешеходен мост/надлез</td>
+                <td></td>
+                <td th:text="${result.B4}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td data-th-text="#{label.crossing.two.five}">Нерегулирано (квартални улици)</td>
+                <td></td>
+                <td th:text="${result.B5}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td data-th-text="#{label.crossing.two.six}">Неправилно</td>
+                <td></td>
+                <td th:text="${result.B6}">0</td>
+            </tr>
+
+            <tr>
+                <td data-th-text="#{label.crossing.three}">Помислено ли е за лица с намалена подвижност, незрящи, детски колички и др?</td>
+                <td data-th-text="#{label.crossing.three.one}">Да</td>
+                <td data-th-text="#{label.crossing.three.one.one}">Скосени бордюри / повдигната пешеходна повърхност</td>
+                <td th:text="${result.C1}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td data-th-text="#{label.crossing.three.one.two}">Тактилни (релефни) плочки </td>
+                <td th:text="${result.C2}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td data-th-text="#{label.crossing.three.one.three}">Звукова сигнализация</td>
+                <td th:text="${result.C3}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td data-th-text="#{label.crossing.three.two}">Не, никакви</td>
+                <td></td>
+                <td th:text="${result.C4}">0</td>
+            </tr>
+
+            <tr>
+                <td data-th-text="#{label.crossing.four}">Има ли нещо, което в момента затруднява видимостта или пресичането?</td>
+                <td data-th-text="#{label.crossing.four.one}">Да</td>
+                <td data-th-text="#{label.crossing.four.one.one}">Паркирани коли</td>
+                <td th:text="${result.D1}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td data-th-text="#{label.crossing.four.one.two}">Кофи за боклук</td>
+                <td th:text="${result.D2}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td data-th-text="#{label.crossing.four.one.three}">Дървета/храсти</td>
+                <td th:text="${result.D3}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td data-th-text="#{label.crossing.four.one.four}">Друго </td>
+                <td th:text="${result.D4}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td data-th-text="#{label.crossing.four.two}">Не</td>
+                <td></td>
+                <td th:text="${result.D5}">0</td>
+            </tr>
+
+            <tr>
+                <td data-th-text="#{label.crossing.five}">Как оценявате осветеността на кръстовището?</td>
+                <td data-th-text="#{label.crossing.five.one}">Достатъчно осветено</td>
+                <td></td>
+                <td th:text="${result.I1}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td data-th-text="#{label.crossing.five.two}">Осветено, но не е достатъчно</td>
+                <td></td>
+                <td th:text="${result.I2}">0</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td data-th-text="#{label.crossing.five.three}">Не е осветено</td>
+                <td></td>
+                <td th:text="${result.I3}">0</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<footer th:replace="~{fragments/commons::footer}"></footer>
+
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
+<script src="/js/questionResult.js"></script>
+</body>
+</html>

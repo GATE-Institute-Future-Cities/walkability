@@ -1,0 +1,75 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head >
+    <meta charset="UTF-8"/>
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge" />-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+
+    <link rel="stylesheet" href="/css/mobile.css">
+    <link rel="stylesheet" href="/css/circleStyle.css">
+<!--    <link rel="stylesheet" href="/css/questionStyles.css"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--za footer-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <!--za footer-->
+</head>
+<body>
+<!-- Navigation -->
+<header th:replace="fragments/commons::navigation"></header>
+
+<div class="container">
+    <div class="card">
+        <div class="box">
+            <div class="percent">
+                <svg>
+                    <circle cx="70" cy="70" r="70"></circle>
+                    <circle id="circle1" cx="70" cy="70" r="70"></circle>
+                </svg>
+                <div class="number">
+                    <h2 id="h21" th:text="${result.accessibilityWalkability}">90<span>%</span></h2>
+                </div>
+            </div>
+            <h2 class="text" data-th-text="#{label.result.do}">Достъпност и проходимост</h2>
+        </div>
+    </div>
+    <div class="card">
+        <div class="box">
+            <div class="percent">
+                <svg>
+                    <circle cx="70" cy="70" r="70"></circle>
+                    <circle id="circle2" cx="70" cy="70" r="70"></circle>
+                </svg>
+                <div class="number">
+                    <h2 id="h22" th:text="${result.security}">80<span>%</span></h2>
+                </div>
+            </div>
+            <h2 class="text_c" data-th-text="#{label.result.sec}">Сигурност</h2>
+        </div>
+    </div>
+    <div class="card">
+        <div class="box">
+            <div class="percent">
+                <svg>
+                    <circle cx="70" cy="70" r="70"></circle>
+                    <circle id="circle3" cx="70" cy="70" r="70"></circle>
+                </svg>
+                <div class="number">
+                    <h2 id="h23" th:text="${result.comfortAppeal}">60<span>%</span></h2>
+                </div>
+            </div>
+            <h2 class="text" data-th-text="#{label.result.com}">Комфорт и привлекателност</h2>
+        </div>
+    </div>
+</div>
+
+
+<footer th:replace="~{fragments/commons::footer}"></footer>
+
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
+<script src="/js/criteria.js"></script>
+</body>
+</html>

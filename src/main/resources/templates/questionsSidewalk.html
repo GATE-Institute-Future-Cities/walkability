@@ -1,0 +1,343 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="/css/questionStyles.css">
+    <link rel="stylesheet" href="/css/mobile.css">
+    <link rel="stylesheet" href="/css/questionForm.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--za footer-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <!--za footer-->
+
+
+</head>
+<body>
+<!-- Navigation -->
+<header th:replace="~{fragments/commons::navigation}"></header>
+
+<div>
+    <div class="inner" th:object="${id}">
+        <div class="image-holder">
+            <h1 data-th-text="#{label.sidewalk.head}">Въпросник за тротоар</h1>
+            <img src="/images/sidewalk.jpg" alt="image">
+            <img src="/images/sidewalk1.jpg" alt="image">
+            <img src="/images/sidewalk2.jpg" alt="image">
+            <img src="/images/sidewalk3.jpg" alt="image">
+        </div>
+        <form  th:action="@{/questions/sidewalk/{pathId}(pathId=${id})}"
+               th:method="post"
+               modelAttribute="questionSidewalkRequest">
+            <div>
+                <label data-th-text="#{label.sidewalk.one}">1. Има ли някакви препятствия в тази отсечка?</label>
+                <div>
+                    <input type="radio" name="questionOne" value="A1-0" id="A1" onclick="isCheckedOneOne()">
+                    <label for="A1" data-th-text="#{label.sidewalk.one.one}">Да, по цялото протежение на отсечката</label>
+                    <div class="sub1">
+                        <div>
+                            <input type="checkbox" name="questionSubOne" value="A11" id="A11">
+                            <label data-th-text="#{label.sidewalk.one.one.one}" for="A11">Паркирани коли</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="questionSubOne" value="A12" id="A12">
+                            <label data-th-text="#{label.sidewalk.one.one.two}"  for="A12">Кофи за боклук</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="questionSubOne" value="A13" id="A13">
+                            <label data-th-text="#{label.sidewalk.one.one.three}"  for="A13">Маси на заведения</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="questionSubOne" value="A14" id="A14">
+                            <label data-th-text="#{label.sidewalk.one.one.four}"  for="A14">Спирки на МГТ</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="questionSubOne" value="A15" id="A15">
+                            <label data-th-text="#{label.sidewalk.one.one.five}"  for="A15">Несъобразено поставени осветителни стълбове и реклами</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="questionSubOne" value="A16" id="A16">
+                            <label data-th-text="#{label.sidewalk.one.one.six}"  for="A16">Антипаркинг колчета</label>
+                        </div>
+                        <div>
+                            <label data-th-text="#{label.sidewalk.one.one.seven}"  for="A17">Друго</label>
+                            <input type="text" name="questionSubOne" value="" id="A17">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <input type="radio" name="questionOne" value="A2-1" id="A2" onclick="isCheckedOneTwo()">
+                    <label for="A2" data-th-text="#{label.sidewalk.one.two}" >Да, епизодично</label>
+                    <div class="sub1">
+                        <div>
+                            <input type="checkbox" name="questionSubOne" value="A21" id="A21">
+                            <label data-th-text="#{label.sidewalk.one.two.one}" for="A21">Паркирани коли</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="questionSubOne" value="A22" id="A22">
+                            <label data-th-text="#{label.sidewalk.one.two.two}" for="A22">Кофи за боклук</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="questionSubOne" value="A23" id="A23">
+                            <label data-th-text="#{label.sidewalk.one.two.three}" for="A23">Маси на заведения</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="questionSubOne" value="A24" id="A24">
+                            <label data-th-text="#{label.sidewalk.one.two.four}" for="A24">Спирки на МГТ</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="questionSubOne" value="A25" id="A25">
+                            <label data-th-text="#{label.sidewalk.one.two.five}" for="A25">Несъобразено поставени осветителни стълбове и реклами</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="questionSubOne" value="A26" id="A26">
+                            <label data-th-text="#{label.sidewalk.one.two.six}" for="A26">Антипаркинг колчета</label>
+                        </div>
+                        <div>
+                            <label for="A27">Друго</label>
+                            <input data-th-text="#{label.sidewalk.one.two.seven}" type="text" name="questionSubOne" value="" id="A27">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <input type="radio" name="questionOne" value="A3-2" id="A3" onclick="isCheckedOneThree()">
+                    <label data-th-text="#{label.sidewalk.one.three}" for="A3"> Не, никакви </label>
+                </div>
+            </div>
+
+            <br>
+            <div>
+                <label data-th-text="#{label.sidewalk.two}"> 2. Има ли конфликт на тротоара с други дейности?</label>
+                <div>
+                    <input type="radio" name="questionTwo" value="B1-0" id="B1">
+                    <label for="B1" data-th-text="#{label.sidewalk.two.one}">Да</label>
+                    <div class="sub1">
+                        <div>
+                            <input type="checkbox" name="questionSubTwo" value="B11" id="B11">
+                            <label data-th-text="#{label.sidewalk.two.one.one}" for="B11">Преминават велосипеди</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="questionSubTwo" value="B12" id="B12">
+                            <label data-th-text="#{label.sidewalk.two.one.two}" for="B12">Преминават тротинетки</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="questionSubTwo" value="B13" id="B13">
+                            <label data-th-text="#{label.sidewalk.two.one.three}" for="B13">Товарни автомобили зареждат търговски обекти</label>
+                        </div>
+                        <div>
+                            <label for="B14">Други</label>
+                            <input data-th-text="#{label.sidewalk.two.one.four}" type="text" name="questionSubTwo" value="" id="B14">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <input type="radio" name="questionTwo" value="B2-1" id="B2" onclick="isCheckedTwo()">
+                    <label data-th-text="#{label.sidewalk.two.two}" for="B2">Не</label>
+                </div>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.sidewalk.three}">3. Има ли проблеми с настилката в момента? </label>
+            <div>
+                <input type="radio" name="questionThree" value="C1-0" id="C1" onclick="isCheckedThreeOne()">
+                <label data-th-text="#{label.sidewalk.three.one}" for="C1">Да, по цялото протежение на отсечката</label>
+                <div class="sub1">
+                    <div>
+                        <input type="checkbox" name="questionSubThree" value="C11" id="C11">
+                        <label data-th-text="#{label.sidewalk.three.one.one}" for="C11">Има много неравности</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="questionSubThree" value="C12" id="C12">
+                        <label data-th-text="#{label.sidewalk.three.one.two}" for="C12">Липса на настилка</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="questionSubThree" value="C13" id="C13">
+                        <label data-th-text="#{label.sidewalk.three.one.three}" for="C13">Хлъзгаво е</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="questionSubThree" value="C14" id="C14">
+                        <label data-th-text="#{label.sidewalk.three.one.four}" for="C14">Има наводнени участъци</label>
+                    </div>
+                    <div>
+                        <label for="C15">Друго</label>
+                        <input data-th-text="#{label.sidewalk.three.one.five}" type="text" name="questionSubThree" value="" id="C15">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="radio" name="questionThree" value="C2-1" id="C2" onclick="isCheckedThreeTwo()">
+                <label data-th-text="#{label.sidewalk.three.two}" for="C2">Да, епизодично</label>
+                <div class="sub1">
+                    <div>
+                        <input type="checkbox" name="questionSubThree" value="C21" id="C21">
+                        <label data-th-text="#{label.sidewalk.three.two.one}" for="C21">Има много неравности</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="questionSubThree" value="C22" id="C22">
+                        <label data-th-text="#{label.sidewalk.three.two.two}" for="C22">Липса на настилка</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="questionSubThree" value="C23" id="C23">
+                        <label data-th-text="#{label.sidewalk.three.two.three}" for="C23">Хлъзгаво е</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="questionSubThree" value="C24" id="C24">
+                        <label data-th-text="#{label.sidewalk.three.two.four}" for="C24">Има наводнени участъци</label>
+                    </div>
+                    <div>
+                        <label for="C25">Друго</label>
+                        <input data-th-text="#{label.sidewalk.three.two.five}" type="text" name="questionSubThree" value="" id="C25">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="radio" name="questionThree" value="C3-2" id="C3" onclick="isCheckedThreeThree()">
+                <label data-th-text="#{label.sidewalk.three.three}" for="C3">Не, никакви</label>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.sidewalk.four}">4. Има ли търговски обекти в партерните етажи на сградите?</label>
+            <div>
+                <input type="radio" name="questionFour" value="D1-1-0.5" id="D1">
+                <label data-th-text="#{label.sidewalk.four.one}" for="D1">Да</label>
+            </div>
+            <div>
+                <input type="radio" name="questionFour" value="D2-0-0" id="D2">
+                <label data-th-text="#{label.sidewalk.four.two}" for="D2">Не</label>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.sidewalk.five}">5. Има ли денонощни обекти (магазин, аптека, бар, бензиностанция, хотел, болница, други)? </label>
+            <div>
+                <input type="radio" name="questionFive" value="Е1-0.5-0.5" id="Е1">
+                <label data-th-text="#{label.sidewalk.five.one}" for="Е1">Да</label>
+            </div>
+            <div>
+                <input type="radio" name="questionFive" value="Е2-0-0" id="Е2">
+                <label data-th-text="#{label.sidewalk.five.two}" for="Е2">Не</label>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.sidewalk.six}">6. Осветено ли е? </label>
+            <div>
+                <input type="radio" name="questionSix" value="F1-2" id="F1">
+                <label data-th-text="#{label.sidewalk.six.one}" for="F1">Да, достатъчно осветено в цялата отсечка</label>
+            </div>
+            <div>
+                <input type="radio" name="questionSix" value="F2-1" id="F2">
+                <label data-th-text="#{label.sidewalk.six.two}" for="F2">Да, достатъчно осветено само в някои части на отсечката</label>
+            </div>
+            <div>
+                <input type="radio" name="questionSix" value="F3-0" id="F3">
+                <label data-th-text="#{label.sidewalk.six.three}" for="F3">Не е осветено в цялата отсечка</label>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.sidewalk.seven}">7. Има ли изоставени сгради? </label>
+            <div>
+                <input type="radio" name="questionSeven" value="G1-0" id="G1">
+                <label data-th-text="#{label.sidewalk.seven.one}" for="G1">Да</label>
+            </div>
+            <div>
+                <input type="radio" name="questionSeven" value="G2-0.5" id="G2">
+                <label data-th-text="#{label.sidewalk.seven.two}" for="G2">Не</label>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.sidewalk.eight}">8. Има ли хора в тази зона? </label>
+            <div>
+                <input type="radio" name="questionEight" value="H1-1" id="H1">
+                <label data-th-text="#{label.sidewalk.eight.one}" for="H1">Да, има седящи/стоящи</label>
+            </div>
+            <div>
+                <input type="radio" name="questionEight" value="H2-0.5" id="H2">
+                <label data-th-text="#{label.sidewalk.eight.two}" for="H2">Да, има преминаващи</label>
+            </div>
+            <div>
+                <input type="radio" name="questionEight" value="H3-1.5" id="H3">
+                <label data-th-text="#{label.sidewalk.eight.three}" for="H3">Да, има седящи/стоящи и преминаващи</label>
+            </div>
+            <div>
+                <input type="radio" name="questionEight" value="H4-0" id="H4">
+                <label data-th-text="#{label.sidewalk.eight.four}" for="H4">Няма</label>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.sidewalk.nine}">9. Какъв е автомобилният трафик на уличното платно в момента? </label>
+            <div>
+                <input type="radio" name="questionNine" value="I1-0" id="I1">
+                <label data-th-text="#{label.sidewalk.nine.one}" for="I1">Интензивен</label>
+            </div>
+            <div>
+                <input type="radio" name="questionNine" value="I2-0.5" id="I2">
+                <label data-th-text="#{label.sidewalk.nine.two}" for="I2">Умерен</label>
+            </div>
+            <div>
+                <input type="radio" name="questionNine" value="I3-1" id="I3">
+                <label data-th-text="#{label.sidewalk.nine.three}" for="I3">Спокоен</label>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.sidewalk.ten}">10. Има ли озеленяване? (дървета, храсти, тревни площи и др.) </label>
+            <div>
+                <input type="radio" name="questionTen" value="J1-1" id="J1">
+                <label data-th-text="#{label.sidewalk.ten.one}" for="J1">Да, в добро състояние</label>
+            </div>
+            <div>
+                <input type="radio" name="questionTen" value="J2-0.5" id="J2">
+                <label data-th-text="#{label.sidewalk.ten.two}" for="J2">Да, в лошо състояние</label>
+            </div>
+            <div>
+                <input type="radio" name="questionTen" value="J3-0" id="J3">
+                <label data-th-text="#{label.sidewalk.ten.three}" for="J3">Не, няма</label>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.sidewalk.eleven}">11. Има ли градско обзавеждане? (пейки, кошчета и др.) </label>
+            <div>
+                <input type="radio" name="questionEleven" value="K1-1" id="K1">
+                <label data-th-text="#{label.sidewalk.eleven.one}" for="K1">Да, в добро състояние</label>
+            </div>
+            <div>
+                <input type="radio" name="questionEleven" value="K2-0.5" id="K2">
+                <label data-th-text="#{label.sidewalk.eleven.two}" for="K2">Да, в лошо състояние</label>
+            </div>
+            <div>
+                <input type="radio" name="questionEleven" value="K3-0" id="K3">
+                <label data-th-text="#{label.sidewalk.eleven.three}" for="K3">Не, няма</label>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.sidewalk.twelve}">12. Има ли неподдържани фасади? (ронеща се мазилка и др.)</label>
+            <div>
+                <input type="radio" name="questionTwelve" value="L1-0" id="L1">
+                <label data-th-text="#{label.sidewalk.twelve.one}" for="L1">Много</label>
+            </div>
+            <div>
+                <input type="radio" name="questionTwelve" value="L2-0.5" id="L2">
+                <label data-th-text="#{label.sidewalk.twelve.two}" for="L2">Малко</label>
+            </div>
+            <div>
+                <input type="radio" name="questionTwelve" value="L3-0.5" id="L3">
+                <label data-th-text="#{label.sidewalk.twelve.three}" for="L3">Не, няма</label>
+            </div>
+            <div>
+                <input type="radio" name="questionTwelve" value="L4-0" id="L4">
+                <label data-th-text="#{label.sidewalk.twelve.four}" for="L4">Няма сгради</label>
+            </div>
+            <button data-th-text="#{label.sidewalk.but}" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script><!--hfdshfl-->
+<script src="/js/questionSidewalk.js"></script>
+</body>
+</html>

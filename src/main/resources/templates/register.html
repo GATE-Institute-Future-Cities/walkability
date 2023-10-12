@@ -1,0 +1,104 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="/css/registerStyle.css">
+    <link rel="stylesheet" href="/css/mobile.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--za footer-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+</head>
+<body>
+<header th:replace="~{fragments/commons::navigation}"></header>
+
+<div class="form-div">
+    <form class="form-register"
+          th:action="@{/users/register}"
+          th:method="post"
+          modelAttribute="signUpRequest">
+        <h3 data-th-text="#{label.register.head}">Register</h3>
+
+        <label for="username" data-th-text="#{label.register.username}">Username</label>
+        <input name="username" type="text" id="username" required>
+
+        <label for="firstname" data-th-text="#{label.register.firstName}">First Name</label>
+        <input name="firstName" type="text" id="firstname" required>
+
+        <label for="lastname" data-th-text="#{label.register.lastName}">Last Name</label>
+        <input name="lastName" type="text" id="lastname" required>
+
+        <label for="email" data-th-text="#{label.register.email}">Email</label>
+        <input name="email" type="text" id="email" required>
+
+        <label for="password" data-th-text="#{label.register.password}">Password</label>
+        <input name="password" type="password" id="password" required>
+
+        <label for="confirmpassword" data-th-text="#{label.register.conPassword}">Confirm Password</label>
+        <input name="confirmPassword" type="password" id="confirmpassword" required>
+
+        <label for="age" data-th-text="#{label.register.date}">Year of Birth</label>
+        <input name="date" type="date" id="age" required>
+
+        <label for="gender" data-th-text="#{label.register.gender}">Gender</label>
+        <select name="gender" id="gender" required>
+            <option value="" data-th-text="#{label.register.gender.select}">Select gender</option>
+            <option th:each="g : ${T(com.example.map.entity.GenderType).values()}"
+                    th:text="${g}" th:value="${g}">MALE
+            </option>
+        </select>
+
+        <label for="physicalActivity" data-th-text="#{label.register.activity}">Physical Activity</label>
+        <select name="physicalActivity" id="physicalActivity" required>
+            <option value="" data-th-text="#{label.register.specific.select}">Select physical activity</option>
+            <option value="ONE">3 or more times a week</option>
+            <option value="TWO">1-2 times a week</option>
+            <option value="THREE">1 every two weeks</option>
+            <option value="FOUR">less often</option>
+        </select>
+
+        <label data-th-text="#{label.register.specific}">Specifics when moving</label>
+
+        <div class="reg-div">
+            <input class="checkbox" type="radio" name="specific" value="1" id="specific1" required>
+            <label data-th-text="#{label.register.specific.one}" class="label-checkbox" for="specific1">с детска количка</label>
+        </div>
+
+        <div class="reg-div">
+            <input class="checkbox" type="radio" name="specific" value="2" id="specific2" required>
+            <label data-th-text="#{label.register.specific.two}" class="label-checkbox" for="specific2">с дете</label>
+        </div>
+
+        <div class="reg-div">
+            <input class="checkbox" type="radio" name="specific" value="3" id="specific3" required>
+            <label data-th-text="#{label.register.specific.three}" class="label-checkbox" for="specific3">с инвалидна количка</label>
+        </div>
+
+        <div class="reg-div">
+            <input class="checkbox" type="radio" name="specific" value="4" id="specific4" required>
+            <label data-th-text="#{label.register.specific.four}" class="label-checkbox" for="specific4">с нарушен слух</label>
+        </div>
+
+        <div class="reg-div">
+            <input class="checkbox" type="radio" name="specific" value="5" id="specific5" required>
+            <label data-th-text="#{label.register.specific.five}" class="label-checkbox" for="specific5">с нарушено зрение</label>
+        </div>
+
+        <div class="reg-div">
+            <input class="checkbox" type="radio" name="specific" value="6" id="specific6" required>
+            <label data-th-text="#{label.register.specific.six}" class="label-checkbox" for="specific6">нямам</label>
+        </div>
+
+        <button data-th-text="#{label.register.button}">Register</button>
+    </form>
+</div>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</body>
+</html>

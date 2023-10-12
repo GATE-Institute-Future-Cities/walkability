@@ -1,0 +1,159 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="/css/questionStyles.css">
+    <link rel="stylesheet" href="/css/mobile.css">
+    <link rel="stylesheet" href="/css/questionForm.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--za footer-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <!--za footer-->
+
+
+</head>
+<body>
+<!-- Navigation -->
+<header th:replace="~{fragments/commons::navigation}"></header>
+<body>
+<div>
+    <div class="inner" th:object="${id}">
+        <div class="image-holder">
+            <h1 data-th-text="#{label.crossing.head}">Въпросник за пресичане</h1>
+            <img src="/images/crossing.jpg" alt="image">
+            <img src="/images/crossing1.jpg" alt="image">
+        </div>
+        <form
+                th:action="@{/questions/crossing/{pathId}(pathId=${id})}"
+                th:method="post"
+                modelAttribute="questionCrossingRequest">
+            <div>
+                <label data-th-text="#{label.crossing.one}">1. Какъв е автомобилният трафик на уличното платно в момента?</label>
+                <div>
+                    <input type="radio" name="questionOne" value="A1-0" id="A1">
+                    <label data-th-text="#{label.crossing.one.one}" for="A1">Интензивен </label>
+                </div>
+                <div>
+                    <input type="radio" name="questionOne" value="A2-1" id="A2">
+                    <label data-th-text="#{label.crossing.one.two}" for="A2">Умерен </label>
+                </div>
+                <div>
+                    <input type="radio" name="questionOne" value="A3-2" id="A3">
+                    <label data-th-text="#{label.crossing.one.three}" for="A3">Спокоен </label>
+                </div>
+            </div>
+
+            <br>
+            <div name="questionTwo">
+                <label data-th-text="#{label.crossing.two}">2. Какъв вид е пресичането?</label>
+                <div>
+                    <input type="radio" name="questionTwo" value="B1-2-2" id="B1">
+                    <label data-th-text="#{label.crossing.two.one}" for="B1">Светофар</label>
+                </div>
+                <div>
+                    <input type="radio" name="questionTwo" value="B2-2-2" id="B2">
+                    <label for="B2" data-th-text="#{label.crossing.two.two}">Пешеходна пътека </label>
+                </div>
+                <div>
+                    <input type="radio" name="questionTwo" value="B3-2-2" id="B3">
+                    <label for="B3" data-th-text="#{label.crossing.two.three}">Пешеходен подлез </label>
+                </div>
+                <div>
+                    <input type="radio" name="questionTwo" value="B4-2-2" id="B4">
+                    <label for="B4" data-th-text="#{label.crossing.two.three}">Пешеходен мост/надлез </label>
+                </div>
+                <div>
+                    <input type="radio" name="questionTwo" value="B5-0-0" id="B5">
+                    <label for="B5" data-th-text="#{label.crossing.two.four}">Нерегулирано (квартални улици) </label>
+                </div>
+                <div>
+                    <input type="radio" name="questionTwo" value="B6-0-0" id="B6">
+                    <label for="B6" data-th-text="#{label.crossing.two.six}">Неправилно </label>
+                </div>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.crossing.three}">3. Помислено ли е за лица с намалена подвижност, незрящи, детски колички и др?</label>
+            <div>
+                <input type="radio" name="questionThree" value="C1-2" id="C1">
+                <label for="C1" data-th-text="#{label.crossing.three.one}">Да</label>
+                <div class="sub1">
+                    <div>
+                        <input type="checkbox" name="questionSubThree" value="C11" id="C11">
+                        <label for="C11" data-th-text="#{label.crossing.three.one.one}">Скосени бордюри / повдигната пешеходна повърхност</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="questionSubThree" value="C12" id="C12">
+                        <label for="C12" data-th-text="#{label.crossing.three.one.two}">Тактилни (релефни) плочки</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="questionSubThree" value="C13" id="C13">
+                        <label for="C13" data-th-text="#{label.crossing.three.one.three}">Звукова сигнализация</label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="radio" name="questionThree" value="C2-0" id="C2" onclick="isCheckedThree()">
+                <label for="C2" data-th-text="#{label.crossing.three.two}">Не, никакви</label>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.crossing.four}">4. Има ли нещо, което в момента затруднява видимостта или пресичането?</label>
+            <div>
+                <input type="radio" name="questionFour" value="D1-0-0" id="D1">
+                <label for="D1" data-th-text="#{label.crossing.four.one}">Да</label>
+                <div class="sub1">
+                    <div>
+                        <input type="checkbox" name="questionSubFour" value="D11" id="D11">
+                        <label data-th-text="#{label.crossing.four.one.one}" for="D11">Паркирани коли</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="questionSubFour" value="D12" id="D12">
+                        <label data-th-text="#{label.crossing.four.one.two}" for="D12">Кофи за боклук</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="questionSubFour" value="D13" id="D13">
+                        <label data-th-text="#{label.crossing.four.one.three}" for="D13">Дървета/храсти </label>
+                    </div>
+                    <div>
+                        <label data-th-text="#{label.crossing.four.one.four}" for="D14">Друго</label>
+                        <input type="text" name="questionSubFour" value="" id="D14">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="radio" name="questionFour" value="D2-1-1" id="D2" onclick="isCheckedFour()">
+                <label data-th-text="#{label.crossing.four.two}" for="D2">Не</label>
+            </div>
+
+            <br>
+            <label data-th-text="#{label.crossing.five}">5. Как оценявате осветеността на кръстовището?</label>
+            <div>
+                <input type="radio" name="questionFive" value="I1-1" id="I1">
+                <label data-th-text="#{label.crossing.five.one}" for="I1">Достатъчно осветено </label>
+            </div>
+            <div>
+                <input type="radio" name="questionFive" value="I2-0.5" id="I2">
+                <label data-th-text="#{label.crossing.five.two}" for="I2">Осветено, но не е достатъчно</label>
+            </div>
+            <div>
+                <input type="radio" name="questionFive" value="I3-0" id="I3">
+                <label data-th-text="#{label.crossing.five.three}" for="I3">Не е осветено</label>
+            </div>
+
+            <button data-th-text="#{label.crossing.but}" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script><!--hfdshfl-->
+<script src="/js/questions.js"></script>
+<script src="/js/questionCrossing.js"></script>
+</body>

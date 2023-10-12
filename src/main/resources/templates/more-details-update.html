@@ -1,0 +1,74 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"><!--hfdshfl-->
+    <title>Smart Routing</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/routhInfo.css">
+    <link rel="stylesheet" href="/css/mobile.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--za footer-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/2536001940.js" crossorigin="anonymous"></script>
+    <script th:src="@{assets/custom-file-input/bs-custom-file-input.js}"></script>
+</head>
+<body>
+<!--<div class="wrapper">-->
+    <header th:replace="fragments/commons::navigation"></header>
+
+    <!--    <input type="hidden" name="routeId" id="routeId" th:text="${locationn.feature_info.id}">-->
+    <div class="div-form" th:object="${id}">
+        <form class="form-login" th:action="@{/information/{pathId}(pathId=${id})}"
+              th:method="POST"
+                modelAttribute="updateRoute">
+<!--        <section class="route-info-right text-center" style="grid-column: 2">-->
+            <h3 data-th-text="#{label.more.details.head}">Допълнителна информация</h3>
+            <label for="lamp" data-th-text="#{label.more.details.lamp}"><i class="fa-solid fa-lightbulb"></i> Улични лампи: </label>
+            <input name="lamp" type="text" id="lamp">
+
+            <label for="bucket" data-th-text="#{label.more.details.bucket}"><i class="fa-solid fa-trash-can"></i> Кофи за боклук: </label>
+            <input name="bucket" type="text" id="bucket">
+
+            <label for="tree" data-th-text="#{label.more.details.tree}"><i class="fa-solid fa-tree"></i> Дървета: </label>
+            <input name="tree" type="text" id="tree">
+
+            <label for="station" data-th-text="#{label.more.details.station}"><i class="fa-solid fa-store"></i> Спирки: </label>
+            <input name="station" type="text" id="station">
+
+            <label for="bench" data-th-text="#{label.more.details.bench}"><i class="fa-solid fa-chair"></i> Пейки: </label>
+            <input name="bench" type="text" id="bench">
+
+            <label for="sign" data-th-text="#{label.more.details.sign}"><i class="fa-solid fa-sign-hanging"></i> Пътни знаци: </label>
+            <input name="sign" type="text" id="sign">
+
+            <label for="billboard" data-th-text="#{label.more.details.bild}"><i class="fa-solid fa-tv"></i> Билбордове: </label>
+            <input name="billboard" type="text" id="billboard">
+
+            <label for="peg" data-th-text="#{label.more.details.peg}"><i class="fa-solid fa-ruler-vertical"></i> Антипаркинг колчета: </label>
+            <input name="peg" type="text" id="peg">
+
+            <label for="shaft" data-th-text="#{label.more.details.shaft}"><i class="fa-solid fa-life-ring"></i> Шахти: </label>
+            <input name="shaft" type="text" id="shaft">
+
+            <div class="form-group">
+                <button class="btn-primary rounded" type="submit" data-th-text="#{label.more.details.update}">Промени информацията</button>
+            </div>
+        </form>
+<!--        </section>-->
+    </div>
+<!--</div>-->
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>

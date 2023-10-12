@@ -1,0 +1,100 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<!--<head th:replace="fragments/commons::head">-->
+<head>
+    <meta charset="utf-8"/>
+    <title>Display a map</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <script src="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.js"></script>
+    <link href="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"/>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.0/mapbox-gl-draw.js"></script>
+
+
+    <link
+            rel="stylesheet"
+            href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.0/mapbox-gl-draw.css"
+            type="text/css"
+    />
+
+
+    <script src="/js/map.js"></script>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.3.2/mapbox-gl-draw.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" />
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.3.2/mapbox-gl-draw.css" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            /*position: relative;*/
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .button {
+            display: block;
+            width: 115px;
+            height: 25px;
+            background: #4E9CAF;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            line-height: 25px;
+            margin-bottom: 5px;
+        }
+
+        .mapboxgl-popup {
+            max-width: 400px;
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        }
+
+        .container1 {
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<!--<header th:replace="fragments/commons::navigation"></header>-->
+<button style=" position: absolute; z-index: 10" id="myButton" onclick="openForm()"> GPS </button>
+
+
+<div class="container1" id="myForm" style="display:none; position: absolute; top: 0; left: 0;">
+    <h2 data-th-text="#{label.map.head}">Търсене на маршрут</h2>
+    <label htmlFor="input1" data-th-text="#{label.map.aPoint}">Начална точка:</label><br>
+    <input type="text" id="input"><br>
+    <label htmlFor="input2" data-th-text="#{label.map.bPoint}">Крайна точка:</label><br>
+    <input type="text" id="input2"><br><br>
+    <button onClick="closeForm()" data-th-text="#{label.map.close}">Затвори</button>
+    <button onClick="cleanForm()" data-th-text="#{label.map.delete}">Изтрий</button>
+    <button onclick="searchForm()" data-th-text="#{label.map.search}">Търсене</button>
+</div>
+
+<div class="container1" id="lineDraw" style="display: none; position: absolute ">
+    <label data-th-text="#{label.map.nameStreet}">Име на улицата</label><br>
+    <input type="text" id="name"><br>
+    <label for="lineType" data-th-text="#{label.map.type}">Тип на отсечката:</label><br>
+    <select name="lineType" id="lineType"><br>
+        <option value="пресичане" data-th-text="#{label.map.crossing}">Пресичане</option>
+        <option value="алея" data-th-text="#{label.map.alley}">Алея</option>
+        <option value="тротоар" data-th-text="#{label.map.sidewalk}">Тротоар</option>
+    </select>
+
+    <button id="submit-button" data-th-text="#{label.map.add}">Добави</button><br>
+    <button onClick="closeForm2()" data-th-text="#{label.map.close}">Затвори</button>
+</div>
+</body>
+</html>

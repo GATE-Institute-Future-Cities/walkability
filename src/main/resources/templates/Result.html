@@ -1,0 +1,341 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head >
+    <style>
+        .sub1, .sub2 {
+            display: none;
+        }
+
+        :checked ~ .sub1, :checked ~ .sub2 {
+            display: block;
+            margin-left: 40px;
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<header th:replace="fragments/commons::navigation"></header>
+
+<form>
+    <div>
+        <label>Има ли някакви препятствия в тази отсечка?</label>
+        <div>
+            <input type="radio" name="questionOne" value="A1" id="A1">
+            <label for="A1">Да, по цялото протежение на отсечката</label>
+            <div class="sub1">
+                <div>
+                    <input type="checkbox" name="questionSubOne" value="A11" id="A11">
+                    <label for="A11">Паркирани коли</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="questionSubOne" value="A12" id="A12">
+                    <label for="A12">Кофи за боклук</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="questionSubOne" value="A13" id="A13">
+                    <label for="A13">Маси на заведения</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="questionSubOne" value="A14" id="A14">
+                    <label for="A14">Спирки на МГТ</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="questionSubOne" value="A15" id="A15">
+                    <label for="A15">Несъобразено поставени осветителни стълбове и реклами</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="questionSubOne" value="A16" id="A16">
+                    <label for="A16">Антипаркинг колчета</label>
+                </div>
+                <div>
+                    <label for="A17">Друго</label>
+                    <input type="text" name="questionSubOne" value="" id="A17">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <input type="radio" name="questionOne" value="A2" id="A2">
+            <label for="A2"> Да, епизодично</label>
+            <div class="sub1">
+                <div>
+                    <input type="checkbox" name="questionSubOne" value="A21" id="A21">
+                    <label for="A21">Паркирани коли</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="questionSubOne" value="A22" id="A22">
+                    <label for="A22">Кофи за боклук</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="questionSubOne" value="A23" id="A23">
+                    <label for="A23">Маси на заведения</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="questionSubOne" value="A24" id="A24">
+                    <label for="A24">Спирки на МГТ</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="questionSubOne" value="A25" id="A25">
+                    <label for="A25">Несъобразено поставени осветителни стълбове и реклами</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="questionSubOne" value="A26" id="A26">
+                    <label for="A26">Антипаркинг колчета</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="questionSubOne" value="" id="A27">
+                    <label for="A27">Друго</label>
+                </div>
+            </div>
+        </div>
+        <div>
+            <label for="A3"> Не, никакви </label>
+            <input type="text" name="questionOne" value="A3" id="A3">
+        </div>
+    </div>
+
+    <div>
+        <label>Има ли конфликт на тротоара с други дейности? </label>
+        <div>
+            <input type="radio" name="questionTwo" value="B1" id="B1">
+            <label for="B1">Да</label>
+            <div class="sub1">
+                <div>
+                    <input type="checkbox" name="questionSubTwo" value="B11" id="B11">
+                    <label for="B11">Преминават велосипеди</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="questionSubTwo" value="B12" id="B12">
+                    <label for="B12">Преминават тротинетки</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="questionSubTwo" value="B13" id="B13">
+                    <label for="B13">Товарни автомобили зареждат търговски обекти</label>
+                </div>
+                <div>
+                    <label for="B14">Други</label>
+                    <input type="checkbox" name="questionSubTwo" value="" id="B14">
+                </div>
+            </div>
+        </div>
+        <div>
+            <input type="radio" name="questionTwo" value="B2" id="B2">
+            <label for="B2">Не</label>
+        </div>
+    </div>
+
+    <label>Има ли проблеми с настилката в момента? </label>
+    <div>
+        <input type="radio" name="questionThree" value="C1" id="C1">
+        <label for="C1">Да, по цялото протежение на отсечката</label>
+        <div class="sub1">
+            <div>
+                <input type="checkbox" name="questionSubThree" value="C11" id="C11">
+                <label for="C11">Има много неравности</label>
+            </div>
+            <div>
+                <input type="checkbox" name="questionSubThree" value="C12" id="C12">
+                <label for="C12">Липса на настилка</label>
+            </div>
+            <div>
+                <input type="checkbox" name="questionSubThree" value="C13" id="C13">
+                <label for="C13">Хлъзгаво е</label>
+            </div>
+            <div>
+                <input type="checkbox" name="questionSubThree" value="C14" id="C14">
+                <label for="C14">Има наводнени участъци</label>
+            </div>
+            <div>
+                <label for="C15">Друго</label>
+                <input type="text" name="questionSubThree" value="" id="C15">
+            </div>
+        </div>
+    </div>
+    <div>
+        <input type="radio" name="questionThree" value="C2" id="C2">
+        <label for="C2">Да, епизодично</label>
+        <div class="sub1">
+            <div>
+                <input type="checkbox" name="questionSubThree" value="C21" id="C21">
+                <label for="C21">Има много неравности</label>
+            </div>
+            <div>
+                <input type="checkbox" name="questionSubThree" value="C22" id="C22">
+                <label for="C22">Липса на настилка</label>
+            </div>
+            <div>
+                <input type="checkbox" name="questionSubThree" value="C23" id="C23">
+                <label for="C23">Хлъзгаво е</label>
+            </div>
+            <div>
+                <input type="checkbox" name="questionSubThree" value="C24" id="C24">
+                <label for="C24">Има наводнени участъци</label>
+            </div>
+            <div>
+                <label for="C25">Друго</label>
+                <input type="text" name="questionSubThree" value="" id="C25">
+            </div>
+        </div>
+    </div>
+    <div>
+        <input type="radio" name="questionThree" value="C3" id="C3">
+        <label for="C3">Не, никакви</label>
+    </div>
+
+    <label>Има ли търговски обекти в партерните етажи на сградите?</label>
+    <div>
+        <input type="radio" name="questionFour" value="D1" id="D1">
+        <label for="D1">Да</label>
+    </div>
+    <div>
+        <input type="radio" name="questionFour" value="D2" id="D2">
+        <label for="D2">Не</label>
+    </div>
+
+    <label>Има ли денонощни обекти (магазин, аптека, бар, бензиностанция, хотел, болница, други)? </label>
+    <div>
+        <input type="radio" name="questionFive" value="Е1" id="Е1">
+        <label for="Е1">Да</label>
+    </div>
+    <div>
+        <input type="radio" name="questionFive" value="Е2" id="Е2">
+        <label for="Е2">Не</label>
+    </div>
+
+    <label>Осветено ли е? </label>
+    <div>
+        <input type="radio" name="questionSix" value="F1" id="F1">
+        <label for="F1">Да, достатъчно осветено в цялата отсечка</label>
+    </div>
+    <div>
+        <input type="radio" name="questionSix" value="F2" id="F2">
+        <label for="F2">Да, достатъчно осветено само в някои части на отсечката</label>
+    </div>
+    <div>
+        <input type="radio" name="questionSix" value="F3" id="F3">
+        <label for="F3">Не е осветено в цялата отсечка</label>
+    </div>
+
+    <label>Има ли изоставени сгради? </label>
+    <div>
+        <input type="radio" name="questionSeven" value="G1" id="G1">
+        <label for="G1">Да</label>
+    </div>
+    <div>
+        <input type="radio" name="questionSeven" value="G2" id="G2">
+        <label for="G2">Не</label>
+    </div>
+
+    <label>Има ли хора в тази зона? </label>
+    <div>
+        <input type="radio" name="questionEight" value="H1" id="H1">
+        <label for="H1">Да, има седящи/стоящи</label>
+    </div>
+    <div>
+        <input type="radio" name="questionEight" value="H2" id="H2">
+        <label for="H2">Да, има преминаващи</label>
+    </div>
+    <div>
+        <input type="radio" name="questionEight" value="H3" id="H3">
+        <label for="H3">Да, има седящи/стоящи и преминаващи</label>
+    </div>
+    <div>
+        <input type="radio" name="questionEight" value="H4" id="H4">
+        <label for="H4">Няма</label>
+    </div>
+
+    <label>Какъв е автомобилният трафик на уличното платно в момента? </label>
+    <div>
+        <input type="radio" name="questionNine" value="I1" id="I1">
+        <label for="I1">Интензивен</label>
+    </div>
+    <div>
+        <input type="radio" name="questionNine" value="I2" id="I2">
+        <label for="I2">Умерен</label>
+    </div>
+    <div>
+        <input type="radio" name="questionNine" value="I3" id="I3">
+        <label for="I3">Спокоен</label>
+    </div>
+
+    <label>Има ли озеленяване? (дървета, храсти, тревни площи и др.) </label>
+    <div>
+        <input type="radio" name="questionTen" value="J1" id="J1">
+        <label for="J1">Да, в добро състояние</label>
+    </div>
+    <div>
+        <input type="radio" name="questionTen" value="J2" id="J2">
+        <label for="J2">Да, в лошо състояние</label>
+    </div>
+    <div>
+        <input type="radio" name="questionTen" value="J3" id="J3">
+        <label for="J3">Не, няма</label>
+    </div>
+
+    <label>Има ли градско обзавеждане? (пейки, кошчета и др.) </label>
+    <div>
+        <input type="radio" name="questionEleven" value="K1" id="K1">
+        <label for="K1">Да, в добро състояние</label>
+    </div>
+    <div>
+        <input type="radio" name="questionEleven" value="K2" id="K2">
+        <label for="K2">Да, в лошо състояние</label>
+    </div>
+    <div>
+        <input type="radio" name="questionEleven" value="K3" id="K3">
+        <label for="K3">Не, няма</label>
+    </div>
+
+    <label>Има ли неподдържани фасади? (ронеща се мазилка и др.)</label>
+    <div>
+        <input type="radio" name="questionTwelve" value="L1" id="L1">
+        <label for="L1">Много</label>
+    </div>
+    <div>
+        <input type="radio" name="questionTwelve" value="L2" id="L2">
+        <label for="L2">Малко</label>
+    </div>
+    <div>
+        <input type="radio" name="questionTwelve" value="L3" id="L3">
+        <label for="L3">Не, няма</label>
+    </div>
+    <div>
+        <input type="radio" name="questionTwelve" value="L4" id="L4">
+        <label for="L4">Няма сгради</label>
+    </div>
+</form>
+
+
+<!--<div class="questions-1">-->
+<!--    <div class="row col-5">-->
+<!--        <h4 class="fw-bold text-center mt-3"></h4>-->
+<!--        <form class=" bg-white px-4" action="">-->
+<!--            <p class="fw-bold">Има ли някакви препятствия в тази отсечка?</p>-->
+<!--            <div class="form-check mb-2">-->
+<!--                <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1"/>-->
+<!--                <label class="form-check-label" for="radioExample1">-->
+<!--                    Да, по цялото протежение на отсечката.-->
+<!--                </label>-->
+<!--            </div>-->
+<!--            <div class="form-check mb-2">-->
+<!--                <input class="form-check-input" type="radio" name="exampleForm" id="radioExample2"/>-->
+<!--                <label class="form-check-label" for="radioExample2">-->
+<!--                    Да, епизодично.-->
+<!--                </label>-->
+<!--            </div>-->
+<!--            <div class="form-check mb-2">-->
+<!--                <input class="form-check-input" type="radio" name="exampleForm" id="radioExample3"/>-->
+<!--                <label class="form-check-label" for="radioExample3">-->
+<!--                    Не, никакви-->
+<!--                </label>-->
+<!--            </div>-->
+<!--        </form>-->
+<!--        <div class="text-end">-->
+<!--            <button type="button" class="btn btn-primary">Submit</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<footer></footer>
+</body>
+</html>
