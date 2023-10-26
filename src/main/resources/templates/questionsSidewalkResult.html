@@ -1,405 +1,508 @@
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns="http://www.w3.org/1999/html"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/questionStylesResult.css}" />
+    <link rel="stylesheet" th:href="@{/css/questionResult.css}" />
+    <link rel="stylesheet" th:href="@{/css/mobile.css}" />
 
-<head >
-    <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="/css/questionStylesResult.css">
-    <link rel="stylesheet" href="/css/questionResult.css">
-    <link rel="stylesheet" href="/css/mobile.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <!--za footer-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap"
+      rel="stylesheet"
+    />
     <!--za footer-->
-</head>
-<body>
-<!-- Navigation -->
-<header th:replace="fragments/commons::navigation"></header>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header th:replace="~{fragments/commons::navigation}"></header>
 
-<section>
-    <!--for demo wrap-->
-    <h1 class="text" data-th-text="#{label.table.head.sid}">Резултати от тротоар</h1>
-    <div class="tbl-header">
+    <section>
+      <!--for demo wrap-->
+      <h1 class="text" data-th-text="#{label.table.head.sid}">
+        Резултати от тротоар
+      </h1>
+      <div class="tbl-header">
         <table cellpadding="0" cellspacing="0" border="0">
-            <thead>
+          <thead>
             <tr>
-                <th data-th-text="#{label.table.question}">Въпрос</th>
-                <th data-th-text="#{label.table.otg}">Отговор</th>
-                <th data-th-text="#{label.table.podot}">Подотговор</th>
-                <th data-th-text="#{label.table.result}">Резултат</th>
+              <th data-th-text="#{label.table.question}">Въпрос</th>
+              <th data-th-text="#{label.table.otg}">Отговор</th>
+              <th data-th-text="#{label.table.podot}">Подотговор</th>
+              <th data-th-text="#{label.table.result}">Резултат</th>
             </tr>
-            </thead>
+          </thead>
         </table>
-    </div>
-    <div class="tbl-content">
+      </div>
+      <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
-            <tbody>
+          <tbody>
             <tr>
-                <td data-th-text="#{label.sidewalk.one}">Има ли някакви препятствия в тази отсечка?</td>
-                <td data-th-text="#{label.sidewalk.one.one}">Да, по цялото протежение на отсечката</td>
-                <td data-th-text="#{label.sidewalk.one.one.one}">Паркирани коли </td>
-                <td th:text="${result.A1}">0</td>
+              <td data-th-text="#{label.sidewalk.one}">
+                Има ли някакви препятствия в тази отсечка?
+              </td>
+              <td data-th-text="#{label.sidewalk.one.one}">
+                Да, по цялото протежение на отсечката
+              </td>
+              <td data-th-text="#{label.sidewalk.one.one.one}">
+                Паркирани коли
+              </td>
+              <td th:text="${result.A1}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.one.one.two}">Кофи за боклук </td>
-                <td th:text="${result.A2}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.one.one.two}">
+                Кофи за боклук
+              </td>
+              <td th:text="${result.A2}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.one.one.three}">Маси на заведения</td>
-                <td th:text="${result.A3}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.one.one.three}">
+                Маси на заведения
+              </td>
+              <td th:text="${result.A3}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.one.one.four}">Спирки на МГТ</td>
-                <td th:text="${result.A4}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.one.one.four}">
+                Спирки на МГТ
+              </td>
+              <td th:text="${result.A4}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.one.one.five}">Несъобразено поставени осветителни стълбове и реклами</td>
-                <td th:text="${result.A5}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.one.one.five}">
+                Несъобразено поставени осветителни стълбове и реклами
+              </td>
+              <td th:text="${result.A5}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.one.one.six}">Антипаркинг колчета</td>
-                <td th:text="${result.A6}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.one.one.six}">
+                Антипаркинг колчета
+              </td>
+              <td th:text="${result.A6}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.one.one.seven}">Друго</td>
-                <td th:text="${result.A7}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.one.one.seven}">Друго</td>
+              <td th:text="${result.A7}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.one.two}">Да, епизодично</td>
-                <td data-th-text="#{label.sidewalk.one.two.one}">Паркирани коли </td>
-                <td th:text="${result.A8}">0</td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.one.two}">Да, епизодично</td>
+              <td data-th-text="#{label.sidewalk.one.two.one}">
+                Паркирани коли
+              </td>
+              <td th:text="${result.A8}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.one.two.two}">Кофи за боклук </td>
-                <td th:text="${result.A9}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.one.two.two}">
+                Кофи за боклук
+              </td>
+              <td th:text="${result.A9}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.one.two.three}">Маси на заведения</td>
-                <td th:text="${result.A10}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.one.two.three}">
+                Маси на заведения
+              </td>
+              <td th:text="${result.A10}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.one.two.four}">Спирки на МГТ</td>
-                <td th:text="${result.A11}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.one.two.four}">
+                Спирки на МГТ
+              </td>
+              <td th:text="${result.A11}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.one.two.five}">Несъобразено поставени осветителни стълбове и реклами</td>
-                <td th:text="${result.A12}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.one.two.five}">
+                Несъобразено поставени осветителни стълбове и реклами
+              </td>
+              <td th:text="${result.A12}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.one.two.six}">Антипаркинг колчета</td>
-                <td th:text="${result.A13}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.one.two.six}">
+                Антипаркинг колчета
+              </td>
+              <td th:text="${result.A13}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.one.two.seven}">Друго</td>
-                <td th:text="${result.A14}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.one.two.seven}">Друго</td>
+              <td th:text="${result.A14}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.one.three}">Не, никакви</td>
-                <td></td>
-                <td th:text="${result.A15}">0</td>
-            </tr>
-
-
-            <tr>
-                <td data-th-text="#{label.sidewalk.two}">Има ли конфликт на тротоара с други дейности?</td>
-                <td data-th-text="#{label.sidewalk.two.one}">Да</td>
-                <td data-th-text="#{label.sidewalk.two.one.one}">Преминават велосипеди</td>
-                <td th:text="${result.B1}">0</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.two.one.two}">Преминават тротинетки</td>
-                <td th:text="${result.B2}">0</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.two.one.three}">Товарни автомобили зареждат търговски обекти </td>
-                <td th:text="${result.B3}">0</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.two.one.four}">Друго</td>
-                <td th:text="${result.B4}">0</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.two.two}">Не</td>
-                <td></td>
-                <td th:text="${result.B5}">0</td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.one.three}">Не, никакви</td>
+              <td></td>
+              <td th:text="${result.A15}">0</td>
             </tr>
 
             <tr>
-                <td data-th-text="#{label.sidewalk.three}">Има ли проблеми с настилката в момента?</td>
-                <td data-th-text="#{label.sidewalk.three.one}">Да, по цялото протежение на отсечката</td>
-                <td data-th-text="#{label.sidewalk.three.one.one}">Има много неравности </td>
-                <td th:text="${result.C1}">0</td>
+              <td data-th-text="#{label.sidewalk.two}">
+                Има ли конфликт на тротоара с други дейности?
+              </td>
+              <td data-th-text="#{label.sidewalk.two.one}">Да</td>
+              <td data-th-text="#{label.sidewalk.two.one.one}">
+                Преминават велосипеди
+              </td>
+              <td th:text="${result.B1}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.three.one.two}">Липса на настилка</td>
-                <td th:text="${result.C2}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.two.one.two}">
+                Преминават тротинетки
+              </td>
+              <td th:text="${result.B2}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.three.one.three}">Хлъзгаво е</td>
-                <td th:text="${result.C3}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.two.one.three}">
+                Товарни автомобили зареждат търговски обекти
+              </td>
+              <td th:text="${result.B3}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.three.one.four}">Има наводнени участъци</td>
-                <td th:text="${result.C4}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.two.one.four}">Друго</td>
+              <td th:text="${result.B4}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.three.one.five}">Друго</td>
-                <td th:text="${result.C5}">0</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.three.two}">Да, епизодично</td>
-                <td data-th-text="#{label.sidewalk.three.two.one}">Има много неравности </td>
-                <td th:text="${result.C6}">0</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.three.two.two}">Липса на настилка</td>
-                <td th:text="${result.C7}">0</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.three.two.three}">Хлъзгаво е</td>
-                <td th:text="${result.C8}">0</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.three.two.four}">Има наводнени участъци</td>
-                <td th:text="${result.C9}">0</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.three.two.five}">Друго</td>
-                <td th:text="${result.C10}">0</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.three.three}">Не, никакви</td>
-                <td></td>
-                <td th:text="${result.C11}">0</td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.two.two}">Не</td>
+              <td></td>
+              <td th:text="${result.B5}">0</td>
             </tr>
 
             <tr>
-                <td data-th-text="#{label.sidewalk.four}">Има ли търговски обекти в партерните етажи на сградите?</td>
-                <td data-th-text="#{label.sidewalk.four.one}">Да</td>
-                <td></td>
-                <td th:text="${result.D1}">0</td>
+              <td data-th-text="#{label.sidewalk.three}">
+                Има ли проблеми с настилката в момента?
+              </td>
+              <td data-th-text="#{label.sidewalk.three.one}">
+                Да, по цялото протежение на отсечката
+              </td>
+              <td data-th-text="#{label.sidewalk.three.one.one}">
+                Има много неравности
+              </td>
+              <td th:text="${result.C1}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.four.two}">Не</td>
-                <td></td>
-                <td th:text="${result.D2}">0</td>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.three.one.two}">
+                Липса на настилка
+              </td>
+              <td th:text="${result.C2}">0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.three.one.three}">
+                Хлъзгаво е
+              </td>
+              <td th:text="${result.C3}">0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.three.one.four}">
+                Има наводнени участъци
+              </td>
+              <td th:text="${result.C4}">0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.three.one.five}">Друго</td>
+              <td th:text="${result.C5}">0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.three.two}">Да, епизодично</td>
+              <td data-th-text="#{label.sidewalk.three.two.one}">
+                Има много неравности
+              </td>
+              <td th:text="${result.C6}">0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.three.two.two}">
+                Липса на настилка
+              </td>
+              <td th:text="${result.C7}">0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.three.two.three}">
+                Хлъзгаво е
+              </td>
+              <td th:text="${result.C8}">0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.three.two.four}">
+                Има наводнени участъци
+              </td>
+              <td th:text="${result.C9}">0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.three.two.five}">Друго</td>
+              <td th:text="${result.C10}">0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.three.three}">Не, никакви</td>
+              <td></td>
+              <td th:text="${result.C11}">0</td>
             </tr>
 
             <tr>
-                <td data-th-text="#{label.sidewalk.five}">Има ли денонощни обекти (магазин, аптека, бар, бензиностанция, хотел, болница, други)?</td>
-                <td data-th-text="#{label.sidewalk.five.one}">Да</td>
-                <td></td>
-                <td th:text="${result.E1}">0</td>
+              <td data-th-text="#{label.sidewalk.four}">
+                Има ли търговски обекти в партерните етажи на сградите?
+              </td>
+              <td data-th-text="#{label.sidewalk.four.one}">Да</td>
+              <td></td>
+              <td th:text="${result.D1}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.five.two}">Не</td>
-                <td></td>
-                <td th:text="${result.E2}">0</td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.four.two}">Не</td>
+              <td></td>
+              <td th:text="${result.D2}">0</td>
             </tr>
 
             <tr>
-                <td data-th-text="#{label.sidewalk.six}">Осветено ли е?</td>
-                <td data-th-text="#{label.sidewalk.six.one}">Да, достатъчно осветено в цялата отсечка</td>
-                <td></td>
-                <td th:text="${result.F1}">0</td>
+              <td data-th-text="#{label.sidewalk.five}">
+                Има ли денонощни обекти (магазин, аптека, бар, бензиностанция,
+                хотел, болница, други)?
+              </td>
+              <td data-th-text="#{label.sidewalk.five.one}">Да</td>
+              <td></td>
+              <td th:text="${result.E1}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.six.two}">Да, достатъчно осветено само в някои части на отсечката</td>
-                <td></td>
-                <td th:text="${result.F2}">0</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.six.three}">Не е осветено в цялата отсечка</td>
-                <td></td>
-                <td th:text="${result.F3}">0</td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.five.two}">Не</td>
+              <td></td>
+              <td th:text="${result.E2}">0</td>
             </tr>
 
             <tr>
-                <td data-th-text="#{label.sidewalk.seven}">Има ли изоставени сгради?</td>
-                <td data-th-text="#{label.sidewalk.seven.one}">Да</td>
-                <td></td>
-                <td th:text="${result.G1}">0</td>
+              <td data-th-text="#{label.sidewalk.six}">Осветено ли е?</td>
+              <td data-th-text="#{label.sidewalk.six.one}">
+                Да, достатъчно осветено в цялата отсечка
+              </td>
+              <td></td>
+              <td th:text="${result.F1}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.seven.two}">Не</td>
-                <td></td>
-                <td th:text="${result.G2}">0</td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.six.two}">
+                Да, достатъчно осветено само в някои части на отсечката
+              </td>
+              <td></td>
+              <td th:text="${result.F2}">0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.six.three}">
+                Не е осветено в цялата отсечка
+              </td>
+              <td></td>
+              <td th:text="${result.F3}">0</td>
             </tr>
 
             <tr>
-                <td data-th-text="#{label.sidewalk.eight}">Има ли хора в тази зона?</td>
-                <td data-th-text="#{label.sidewalk.eight.one}">Да, има седящи/стоящи</td>
-                <td></td>
-                <td th:text="${result.H1}">0</td>
+              <td data-th-text="#{label.sidewalk.seven}">
+                Има ли изоставени сгради?
+              </td>
+              <td data-th-text="#{label.sidewalk.seven.one}">Да</td>
+              <td></td>
+              <td th:text="${result.G1}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.eight.two}">Да, има преминаващи</td>
-                <td></td>
-                <td th:text="${result.H2}">0</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.eight.three}">Да, има седящи/стоящи и преминаващи</td>
-                <td></td>
-                <td th:text="${result.H3}">0</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.eight.four}">Няма</td>
-                <td></td>
-                <td th:text="${result.H4}">0</td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.seven.two}">Не</td>
+              <td></td>
+              <td th:text="${result.G2}">0</td>
             </tr>
 
             <tr>
-                <td data-th-text="#{label.sidewalk.nine}">Какъв е автомобилният трафик на уличното платно в момента?</td>
-                <td data-th-text="#{label.sidewalk.nine.one}">Интензивен</td>
-                <td></td>
-                <td th:text="${result.I1}">0</td>
+              <td data-th-text="#{label.sidewalk.eight}">
+                Има ли хора в тази зона?
+              </td>
+              <td data-th-text="#{label.sidewalk.eight.one}">
+                Да, има седящи/стоящи
+              </td>
+              <td></td>
+              <td th:text="${result.H1}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.nine.two}">Умерен</td>
-                <td></td>
-                <td th:text="${result.I2}">0</td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.eight.two}">
+                Да, има преминаващи
+              </td>
+              <td></td>
+              <td th:text="${result.H2}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.nine.three}">Спокоен</td>
-                <td></td>
-                <td th:text="${result.I3}">0</td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.eight.three}">
+                Да, има седящи/стоящи и преминаващи
+              </td>
+              <td></td>
+              <td th:text="${result.H3}">0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.eight.four}">Няма</td>
+              <td></td>
+              <td th:text="${result.H4}">0</td>
             </tr>
 
             <tr>
-                <td data-th-text="#{label.sidewalk.ten}">Има ли озеленяване? (дървета, храсти, тревни площи и др.)</td>
-                <td data-th-text="#{label.sidewalk.ten.one}">Да, в добро състояние</td>
-                <td></td>
-                <td th:text="${result.J1}">0</td>
+              <td data-th-text="#{label.sidewalk.nine}">
+                Какъв е автомобилният трафик на уличното платно в момента?
+              </td>
+              <td data-th-text="#{label.sidewalk.nine.one}">Интензивен</td>
+              <td></td>
+              <td th:text="${result.I1}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.ten.two}">Да, в лошо състояние</td>
-                <td></td>
-                <td th:text="${result.J2}">0</td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.nine.two}">Умерен</td>
+              <td></td>
+              <td th:text="${result.I2}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.ten.three}">Не, няма</td>
-                <td></td>
-                <td th:text="${result.J3}">0</td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.nine.three}">Спокоен</td>
+              <td></td>
+              <td th:text="${result.I3}">0</td>
             </tr>
 
             <tr>
-                <td data-th-text="#{label.sidewalk.eleven}">Има ли градско обзавеждане? (пейки, кошчета и др.) </td>
-                <td data-th-text="#{label.sidewalk.eleven.one}">Да, в добро състояние</td>
-                <td></td>
-                <td th:text="${result.K1}">0</td>
+              <td data-th-text="#{label.sidewalk.ten}">
+                Има ли озеленяване? (дървета, храсти, тревни площи и др.)
+              </td>
+              <td data-th-text="#{label.sidewalk.ten.one}">
+                Да, в добро състояние
+              </td>
+              <td></td>
+              <td th:text="${result.J1}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.eleven.two}">Да, в лошо състояние</td>
-                <td></td>
-                <td th:text="${result.K2}">0</td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.ten.two}">
+                Да, в лошо състояние
+              </td>
+              <td></td>
+              <td th:text="${result.J2}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.eleven.three}">Не, няма</td>
-                <td></td>
-                <td th:text="${result.K3}">0</td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.ten.three}">Не, няма</td>
+              <td></td>
+              <td th:text="${result.J3}">0</td>
             </tr>
 
             <tr>
-                <td data-th-text="#{label.sidewalk.twelve}">Има ли неподдържани фасади? (ронеща се мазилка и др.)</td>
-                <td data-th-text="#{label.sidewalk.twelve.one}">Много</td>
-                <td></td>
-                <td th:text="${result.L1}">0</td>
+              <td data-th-text="#{label.sidewalk.eleven}">
+                Има ли градско обзавеждане? (пейки, кошчета и др.)
+              </td>
+              <td data-th-text="#{label.sidewalk.eleven.one}">
+                Да, в добро състояние
+              </td>
+              <td></td>
+              <td th:text="${result.K1}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.twelve.two">Малко</td>
-                <td></td>
-                <td th:text="${result.L2}">0</td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.eleven.two}">
+                Да, в лошо състояние
+              </td>
+              <td></td>
+              <td th:text="${result.K2}">0</td>
             </tr>
             <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.twelve.three}">Не, няма</td>
-                <td></td>
-                <td th:text="${result.L3}">0</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td data-th-text="#{label.sidewalk.twelve.four}">Няма сгради</td>
-                <td></td>
-                <td th:text="${result.L4}">0</td>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.eleven.three}">Не, няма</td>
+              <td></td>
+              <td th:text="${result.K3}">0</td>
             </tr>
 
-            </tbody>
+            <tr>
+              <td data-th-text="#{label.sidewalk.twelve}">
+                Има ли неподдържани фасади? (ронеща се мазилка и др.)
+              </td>
+              <td data-th-text="#{label.sidewalk.twelve.one}">Много</td>
+              <td></td>
+              <td th:text="${result.L1}">0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.twelve.two">Малко</td>
+              <td></td>
+              <td th:text="${result.L2}">0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.twelve.three}">Не, няма</td>
+              <td></td>
+              <td th:text="${result.L3}">0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td data-th-text="#{label.sidewalk.twelve.four}">Няма сгради</td>
+              <td></td>
+              <td th:text="${result.L4}">0</td>
+            </tr>
+          </tbody>
         </table>
-    </div>
-</section>
+      </div>
+    </section>
 
-<footer th:replace="~{fragments/commons::footer}"></footer>
+    <footer th:replace="~{fragments/commons::footer}"></footer>
 
-<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-        crossorigin=""></script>
-<script src="/js/questionResult.js"></script>
-</body>
+    <script
+      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      crossorigin=""
+    ></script>
+    <script th:src="@{/js/questionResult.js}"></script>
+  </body>
 </html>
