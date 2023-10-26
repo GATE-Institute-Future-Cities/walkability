@@ -1,56 +1,78 @@
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"><!--hfdshfl-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--hfdshfl-->
     <title>Smart Routing</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/LoginStyles.css">
-    <link rel="stylesheet" href="/css/mobile.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-          crossorigin=""/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/LoginStyles.css}" />
+    <link rel="stylesheet" th:href="@{/css/mobile.css}" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""
+    />
 
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <!--za footer-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header th:replace="~{fragments/commons::navigation}"></header>
 
-</head>
-<body>
-<header th:replace="~{fragments/commons::navigation}"></header>
-
-<div class="div-form">
-    <form class="form-login"
-          th:action="@{/users/login}"
-          th:method="post"
-          modelAttribute="loginRequest">
+    <div class="div-form">
+      <form
+        class="form-login"
+        th:action="@{/users/login}"
+        th:method="post"
+        modelAttribute="loginRequest"
+      >
         <h3 data-th-text="#{label.login.head}">Login</h3>
 
-        <label for="username" data-th-text="#{label.login.username}">Username</label>
-        <input name="username" type="text" id="username">
+        <label for="username" data-th-text="#{label.login.username}"
+          >Username</label
+        >
+        <input name="username" type="text" id="username" />
 
-        <label for="password" data-th-text="#{label.login.password}">Password</label>
-        <input name="password" type="password" id="password">
+        <label for="password" data-th-text="#{label.login.password}"
+          >Password</label
+        >
+        <input name="password" type="password" id="password" />
 
         <button data-th-text="#{label.login.button}">Log In</button>
         <div class="social">
-            <a class="go" href="/oauth2/authorization/google"><i class="fab fa-google"></i> Google</a>
-            <a class="fb" href="/oauth2/authorization/facebook"><i class="fab fa-facebook"></i> Facebook</a>
+          <a class="go" href="/oauth2/authorization/google"
+            ><i class="fab fa-google"></i> Google</a
+          >
+          <a class="fb" href="/oauth2/authorization/facebook"
+            ><i class="fab fa-facebook"></i> Facebook</a
+          >
         </div>
-    </form>
-</div>
-<footer th:replace="~{fragments/commons::footer}"></footer>
-<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-        crossorigin=""></script>
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script><!--hfdshfl-->
-<script src="/js/navbar.js"></script>
-
-
-</body>
+      </form>
+    </div>
+    <footer th:replace="~{fragments/commons::footer}"></footer>
+    <script
+      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      crossorigin=""
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <!--hfdshfl-->
+    <script th:src="@{/js/navbar.js}"></script>
+  </body>
 </html>

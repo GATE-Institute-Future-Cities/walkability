@@ -1,134 +1,180 @@
 <!DOCTYPE html>
-<html
-
-      xmlns:th="http://www.thymeleaf.org">
-
-<head th:fragment="head">
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"><!--hfdshfl-->
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:fragment="head">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--hfdshfl-->
     <title>Smart Routing</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/mobile.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-          crossorigin=""/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link rel="stylesheet" th:href="@{/css/mobile.css}" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""
+    />
 
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <!--za footer-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap"
+      rel="stylesheet"
+    />
     <!--za footer-->
 
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-            crossorigin=""></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script><!--hfdshfl-->
-    <script src="/js/navbar.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      crossorigin=""
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <!--hfdshfl-->
+    <script th:src="@{/js/navbar.js}"></script>
     <script type="text/javascript">
+      // function updateLanguage() {
+      //     var selectElement = document.getElementById("locales");
+      //     var selectedValue = selectElement.value;
+      //     var currentUrl = window.location.href;
+      //
+      //     // Проверка дали URL адресът вече съдържа параметър 'language'
+      //     if (currentUrl.includes("?language=")) {
+      //         // Ако параметърът вече съществува, заменете стойността му
+      //         currentUrl = currentUrl.replace(/(\?language=)[^\&]+/, "$1" + selectedValue);
+      //     } else {
+      //         // Ако параметърът не съществува, добавете го към URL адреса
+      //         currentUrl += "?language=" + selectedValue;
+      //     }
+      //
+      //     localStorage.setItem("selectedLanguage", selectedValue);
+      //
+      //     // Пренасочване към актуализирания URL адрес
+      //     window.location.href = currentUrl;
+      // }
 
-        // function updateLanguage() {
-        //     var selectElement = document.getElementById("locales");
-        //     var selectedValue = selectElement.value;
-        //     var currentUrl = window.location.href;
-        //
-        //     // Проверка дали URL адресът вече съдържа параметър 'language'
-        //     if (currentUrl.includes("?language=")) {
-        //         // Ако параметърът вече съществува, заменете стойността му
-        //         currentUrl = currentUrl.replace(/(\?language=)[^\&]+/, "$1" + selectedValue);
-        //     } else {
-        //         // Ако параметърът не съществува, добавете го към URL адреса
-        //         currentUrl += "?language=" + selectedValue;
-        //     }
-        //
-        //     localStorage.setItem("selectedLanguage", selectedValue);
-        //
-        //     // Пренасочване към актуализирания URL адрес
-        //     window.location.href = currentUrl;
-        // }
-
-        // var selectedLanguage = localStorage.getItem("selectedLanguage");
-        // if (selectedLanguage) {
-        //     document.getElementById("locales").value = selectedLanguage;
-        // }
+      // var selectedLanguage = localStorage.getItem("selectedLanguage");
+      // if (selectedLanguage) {
+      //     document.getElementById("locales").value = selectedLanguage;
+      // }
     </script>
-
-</head>
-<body>
-<header th:fragment="navigation">
-    <!--    <div class="wrapper">-->
-    <div>
+  </head>
+  <body>
+    <header th:fragment="navigation">
+      <!--    <div class="wrapper">-->
+      <div>
         <nav>
-            <div class="menu-icon">
-                <i class="fa fa-bars fa-2x"></i>
-            </div>
-            <div class="logo">
-                Smart Routing
-            </div>
-            <div class="menu">
-                <ul>
-                    <th:div sec:authorize="!isAuthenticated()">
-                        <li><a href="/" th:text="#{label.nav.home}">Home</a></li>
-                        <li><a href="/users/login" data-th-text="#{label.nav.login}">Login</a></li>
-                        <li><a href="/users/register" data-th-text="#{label.nav.register}">Register</a></li>
-                        <li><a href="/about" data-th-text="#{label.nav.about}">About</a></li>
-                    </th:div>
-                    <th:div sec:authorize="isAuthenticated()" >
-                        <th:div th:if="${#authentication.principal.id == 22}">
-                            <li><a href="#" th:text="#{label.nav.admin}">Admin</a></li>
-                            <Li><a href="/users/profiles" th:text="#{label.nav.profiles}">Profiles</a></Li>
-                        </th:div>
-                        <li><a href="/users/profile" th:text="#{label.nav.profile}">Profile</a></li>
-                        <li><a href="/map" th:text="#{label.nav.map}">Map</a></li>
-                        <li>
-                            <form th:action="@{/users/logout}"
-                                  th:method="POST">
-                                <button style="background-color: #1c1b1b; border: none; color: #fff" type="submit" th:text="#{label.nav.logout}">
-                                    Logout
-                                </button>
-                            </form>
-                        </li>
-                    </th:div>
-                    <span data-th-text="#{label.chooseLang}" ></span>
-                    <select id="locales" onchange="updateLanguage()" >
-                        <option class="nav-link" value="en" th:text="#{label.lang.en}"></option>
-                        <option class="nav-link" value="bg" th:text="#{label.lang.bg}"></option>
-                     </select>
-                </ul>
-            </div>
+          <div class="menu-icon">
+            <i class="fa fa-bars fa-2x"></i>
+          </div>
+          <div class="logo">Smart Routing</div>
+          <div class="menu">
+            <ul>
+              <th:div sec:authorize="!isAuthenticated()">
+                <li><a th:href="@{/}" th:text="#{label.nav.home}">Home</a></li>
+                <li>
+                  <a th:href="@{/users/login}" data-th-text="#{label.nav.login}"
+                    >Login</a
+                  >
+                </li>
+                <li>
+                  <a
+                    th:href="@{users/register}"
+                    data-th-text="#{label.nav.register}"
+                    >Register</a
+                  >
+                </li>
+                <li>
+                  <a th:href="@{/about}" data-th-text="#{label.nav.about}"
+                    >About</a
+                  >
+                </li>
+              </th:div>
+              <th:div sec:authorize="isAuthenticated()">
+                <th:div th:if="${#authentication.principal.id == 22}">
+                  <li><a href="#" th:text="#{label.nav.admin}">Admin</a></li>
+                  <li>
+                    <a
+                      th:href="@{users/profiles}"
+                      th:text="#{label.nav.profiles}"
+                      >Profiles</a
+                    >
+                  </li>
+                </th:div>
+                <li>
+                  <a th:href="@{users/profile}" th:text="#{label.nav.profile}"
+                    >Profile</a
+                  >
+                </li>
+                <li><a th:href="@{map}" th:text="#{label.nav.map}">Map</a></li>
+                <li>
+                  <form th:action="@{/users/logout}" th:method="POST">
+                    <button
+                      style="
+                        background-color: #1c1b1b;
+                        border: none;
+                        color: #fff;
+                      "
+                      type="submit"
+                      th:text="#{label.nav.logout}"
+                    >
+                      Logout
+                    </button>
+                  </form>
+                </li>
+              </th:div>
+              <span data-th-text="#{label.chooseLang}"></span>
+              <select id="locales" onchange="updateLanguage()">
+                <option
+                  class="nav-link"
+                  value="en"
+                  th:text="#{label.lang.en}"
+                ></option>
+                <option
+                  class="nav-link"
+                  value="bg"
+                  th:text="#{label.lang.bg}"
+                ></option>
+              </select>
+            </ul>
+          </div>
         </nav>
-    </div>
-</header>
+      </div>
+    </header>
 
-<footer th:fragment="footer">
-    <div class="footer">
+    <footer th:fragment="footer">
+      <div class="footer">
         <div class="row">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-youtube"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-youtube"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
         </div>
 
         <div class="row">
-            <ul>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Career</a></li>
-            </ul>
+          <ul>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Our Services</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Career</a></li>
+          </ul>
         </div>
 
         <!-- Copyright -->
-        <div class="row">
-            Vanko Ivanov © 2023 All rights reserved.
-        </div>
-    </div>
-    <!-- Copyright -->
-</footer>
-</body>
+        <div class="row">Vanko Ivanov © 2023 All rights reserved.</div>
+      </div>
+      <!-- Copyright -->
+    </footer>
+  </body>
 </html>
