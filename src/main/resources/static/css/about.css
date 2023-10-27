@@ -13,24 +13,6 @@ html {
     color: var(--dark);
 }
 
-body {
-    background-image: url("/images/backF.jpg");
-    /*backdrop-filter: blur(4px);*/
-    /*padding: 10px;*/
-
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    /*margin: 30px 50px;*/
-    /*line-height: 1.4;*/
-
-    /* Full height */
-    height: 100%;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    /*background-repeat: no-repeat;*/
-    background-size: cover;
-}
 
 .btn {
     background: var(--dark);
@@ -52,7 +34,6 @@ body {
 
 
 img {
-    max-width: 50%;
     margin-left: 0%;
 }
 
@@ -279,18 +260,20 @@ body{
     text-align: center;
 }
 
-.info div:nth-child(1) {
-    background-image: url("/images/about.jpg");
+.info div:nth-child(1) img{
     background-size: cover;
     border-bottom-right-radius: 5rem;
     border-top-left-radius: 5rem;
+    height: 90%;
+    width: 100%;
 }
 
-.info div:nth-child(3) {
-    background-image: url("/images/about2.jpg");
+.info div:nth-child(3) img{
     background-size: cover;
     border-bottom-left-radius: 5rem;
     border-top-right-radius: 5rem;
+    height: 90%;
+    width: 100%;
 }
 
 .details-main {

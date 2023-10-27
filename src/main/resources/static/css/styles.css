@@ -13,24 +13,6 @@ html {
     color: var(--dark);
 }
 
-body {
-    background-image: url("/images/backF.jpg");
-    /*backdrop-filter: blur(4px);*/
-    /*padding: 10px;*/
-
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    /*margin: 30px 50px;*/
-    /*line-height: 1.4;*/
-
-    /* Full height */
-    height: 100%;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    /*background-repeat: no-repeat;*/
-    background-size: cover;
-}
 
 .btn {
     background: var(--dark);

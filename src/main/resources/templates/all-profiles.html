@@ -2,7 +2,8 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="~{fragments/commons::head}"></head>
-<body>
+<body style="background: url(/images/backF.png) center center no-repeat fixed; background-size: cover; height: 100%;">
+
 <header th:replace="~{fragments/commons::navigation}"></header>
 <main class="p-5 align-content-center bg-blur my-register-div">
     <div class="container mt-5">
@@ -12,7 +13,7 @@
                 <!-- <form th:action="@{#}" method="post">-->
                 <br>
                 <div class="profile-card p-3 py-4">
-                    <div class="text-center"><img th:src="@{/images/profile.jpg}" width="100" class="rounded-circle"></div>
+                    <div class="text-center"><img th:src="@{/images/profile.jpg}" width="100" class="rounded-circle" alt=""></div>
                     <div class="text-center mt-3">
                         <h5 class="mt-2 mb-0" data-th-text="#{label.profile.username}">Username</h5>
                         <span th:text="*{u.username}">UI/UX Designer</span>

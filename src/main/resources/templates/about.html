@@ -16,18 +16,28 @@
     />
     <!--za footer-->
   </head>
-  <body>
+  <body
+    style="
+      background: url(/images/backF.png) center center no-repeat fixed;
+      background-size: cover;
+      height: 100%;
+    "
+  >
     <div class="wrapper">
       <!-- Navigation -->
       <header th:replace="~{fragments/commons::navigation}"></header>
 
       <div class="info">
-        <div></div>
+        <div>
+          <img th:src="@{images/about.jpg}" alt="" />
+        </div>
         <div>
           <h4 data-th-text="#{label.about.header}"></h4>
           <p data-th-text="#{label.about.text}"></p>
         </div>
-        <div></div>
+        <div>
+          <img th:src="@{images/about2.jpg}" alt="" />
+        </div>
       </div>
     </div>
     <!-- Wrapper Ends -->
@@ -36,7 +46,8 @@
   <script
     src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
     integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-    crossorigin=""></script>
+    crossorigin=""
+  ></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <!--hfdshfl-->
 </html>
