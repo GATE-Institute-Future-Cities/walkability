@@ -81,21 +81,21 @@
           <div class="menu">
             <ul>
               <th:div sec:authorize="!isAuthenticated()">
-                <li><a th:href="@{/}" th:text="#{label.nav.home}">Home</a></li>
+                <li><a href="/" th:text="#{label.nav.home}">Home</a></li>
                 <li>
-                  <a th:href="@{/users/login}" data-th-text="#{label.nav.login}"
+                  <a href="/users/login" data-th-text="#{label.nav.login}"
                     >Login</a
                   >
                 </li>
                 <li>
                   <a
-                    th:href="@{users/register}"
+                    href="/users/register"
                     data-th-text="#{label.nav.register}"
                     >Register</a
                   >
                 </li>
                 <li>
-                  <a th:href="@{/about}" data-th-text="#{label.nav.about}"
+                  <a href="/about" data-th-text="#{label.nav.about}"
                     >About</a
                   >
                 </li>
@@ -105,18 +105,18 @@
                   <li><a href="#" th:text="#{label.nav.admin}">Admin</a></li>
                   <li>
                     <a
-                      th:href="@{users/profiles}"
+                      href="users/profiles"
                       th:text="#{label.nav.profiles}"
                       >Profiles</a
                     >
                   </li>
                 </th:div>
                 <li>
-                  <a th:href="@{users/profile}" th:text="#{label.nav.profile}"
+                  <a href="users/profile" th:text="#{label.nav.profile}"
                     >Profile</a
                   >
                 </li>
-                <li><a th:href="@{map}" th:text="#{label.nav.map}">Map</a></li>
+                <li><a href="/map" th:text="#{label.nav.map}">Map</a></li>
                 <li>
                   <form th:action="@{/users/logout}" th:method="POST">
                     <button
