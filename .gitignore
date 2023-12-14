@@ -37,3 +37,4 @@ src/docker-compose.yml
 src/main/resources/liquibase.properties
 src/main/resources/application.yml
 .gitignore
+node_modules/*
