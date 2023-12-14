@@ -31,3 +31,9 @@ build/
 !**/node_modules/
 ### VS Code ###
 .vscode/
+
+secret.txt
+src/docker-compose.yml
+src/main/resources/liquibase.properties
+src/main/resources/application.yml
+.gitignore
